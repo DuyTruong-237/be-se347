@@ -15,8 +15,8 @@ const swaggerJSDOC = require('swagger-jsdoc')
 
 async function connect(){
     try{
-        await mongoose.connect("mongodb+srv://admin123:123456tr@cluster0.0xmzhyw.mongodb.net/mydb?retryWrites=true&w=majority");
-        console.log(error,"successfully");
+        await mongoose.connect("mongodb+srv://admin:admin123@cluster0.ne3ilrx.mongodb.net/test");
+        console.log("successfully");
         
     } catch(error){
         console.log(error,"DB fail")
