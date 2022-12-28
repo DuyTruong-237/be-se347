@@ -52,7 +52,7 @@ app.use("/v1/bill",billRoutes);
 
 
 
-app.listen(8000,()=>{
+app.listen(3001,()=>{
     console.log('Server is running');
 })
 
