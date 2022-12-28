@@ -49,6 +49,7 @@ app.use("/v1/user",userRoutes);
 app.use("/v1/post",postRoutes);
 app.use("/v1/tour",tourRoutes);
 app.use("/v1/bill",billRoutes);
+app.use("/","123456");
 
 
 
