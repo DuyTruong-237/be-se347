@@ -32,7 +32,7 @@ const authController = {
                 id: user.id,
                 admin: user.admin
             },
-            process.env.JWT_ACCESS_KEY,
+            "mysecretkey",
             { expiresIn: "2h" }
         );
     },
@@ -43,7 +43,7 @@ const authController = {
                 id: user.id,
                 admin: user.admin
             },
-            process.env.JWT_ACCESS_KEY,
+            "mysecretkey",
             { expiresIn: "365d" }
         );
     },
@@ -87,7 +87,7 @@ const authController = {
         if(!refreshTokens.includes(refreshToken))
             return res.status(403).json("Refresh token is not valid");
         //Xác nhận refreshToken đúng không
-        jwt.verify(refreshToken , process.env.JWT_REFRESH_KEY , (err,user)=>{
+        jwt.verify(refreshToken , "mysecretkey" , (err,user)=>{
             if(err)
                 console.log(err);
             refreshTokens = refreshTokens.filter((token) => token !== refreshToken);
