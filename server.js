@@ -12,14 +12,22 @@ const swaggerUI = require('swagger-ui-express');
 const swaggerJSDOC = require('swagger-jsdoc')
 
 
+
+async function connect(){
+    try{
+        await mongoose.connect("mongodb+srv://admin123:123456tr@cluster0.0xmzhyw.mongodb.net/mydb?retryWrites=true&w=majority");
+        console.log(error,"successfully");
+        
+    } catch(error){
+        console.log(error,"DB fail")
+    }
+}
+connect();
 dotenv.config();
 const app = express();
-
-
-mongoose.connect("mongodb+srv://admin123:123456tr@cluster0.0xmzhyw.mongodb.net/mydb?retryWrites=true&w=majority",()=>{
-    console.log('CONNECTED TO MONGO DB');
+app.get("/",(req,res)=>{
+    return res.send("home");
 })
-
 app.use(cors());
 app.use(cookieParser());//tạo cookie gắn cookie
 app.use(express.json());
@@ -49,7 +57,7 @@ app.use("/v1/user",userRoutes);
 app.use("/v1/post",postRoutes);
 app.use("/v1/tour",tourRoutes);
 app.use("/v1/bill",billRoutes);
-app.use("/","123456");
+
 
 
 
